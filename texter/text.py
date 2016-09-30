@@ -16,7 +16,6 @@ client = TwilioRestClient(account_sid, auth_token)
 
 #List that holds the messages that are texted
 text = ['Hello. This is your reminder to drink water. Thank you.',
-		'Bernardo wants to know if you\'re drinking water. Hugs!',
 		'*computer voice* Drink water please!',
 		'May I recommend this site: http://greatist.com/health/health-benefits-water',
 		'I\'m thirsty. Are you thirsty? Let\'s go grab a water!',
@@ -31,7 +30,8 @@ text = ['Hello. This is your reminder to drink water. Thank you.',
 		'I know you want a cocktail right now, but a drink of water is more important.',
 		'I love the taste of water. Especially frozen into cubes and completely surrounded by vodka.',
 		'Tell Janice from Accounting to relax. She\'ll get her numbers after your drink of water',
-		'Dihydrogen monoxide is a colorless and odorless chemical compound that the government is purposely telling its citizens to ingest. We must stop this abuse!']
+		'Dihydrogen monoxide is a colorless and odorless chemical compound that the government is purposely telling its citizens to ingest. We must stop this abuse!',
+		'Hail Hydra....I mean Hail Hydration!']
 
 
 def get_tz(timezone):

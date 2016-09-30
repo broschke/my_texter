@@ -143,3 +143,13 @@ def delete_notification(id):
     session.delete(notification)
     session.commit()
     return redirect(url_for("dashboard"))
+
+@app.route("/contacts/<id>/delete", methods=["GET","POST"])
+@login_required
+def delete_contact(id):
+    contact = session.query(Contact)
+    contact = contact.get(id)
+    session.delete(contact)
+    session.commit()
+    return redirect(url_for("dashboard"))
+    
