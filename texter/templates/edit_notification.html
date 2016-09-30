@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<H1>Edit Notification</H1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Time Zone</th>
+            <th>Frequency</th>
+            <th>Days</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action="" method="post">
+            <tr>
+                <td>
+                    <select name="subject">
+                        <option value="water" {% if notification.subject == "water" %}selected{% endif %}>Water</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="timezone">
+                        <option value="eastern" {% if notification.timezone == "eastern" %}selected{% endif %}>Eastern</option>
+                        <option value="central" {% if notification.timezone == "central" %}selected{% endif %}>Central</option>
+                        <option value="mountain" {% if notification.timezone == "mountain" %}selected{% endif %}>Mountain</option>
+                        <option value="pacific" {% if notification.timezone == "pacific" %}selected{% endif %}>Pacific</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="frequency">
+                        <option value="every_hour" {% if notification.frequency == "every_hour" %}selected{% endif %}>Every Hour</option>
+                        <option value="every_two_hours" {% if notification.frequency == "every_two_hours" %}selected{% endif %}>Every Two Hours</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="days">
+                        <option value="every_day" {% if notification.days == "every_day" %}selected{% endif %}>Every Day</option>
+                        <option value="weekdays_only" {% if notification.days == "weekdays_only" %}selected{% endif %}>Weekdays Only</option>
+                    </select>
+                </td>  
+                <td>
+                    <select name="status">
+                        <option value="disabled" {% if notification.status == "disabled" %}selected{% endif %}>Disabled</option>
+                        <option value="enabled" {% if notification.status == "enabled" %}selected{% endif %}>Enabled</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <button type="submit" class="btn btn-success">
+                        Confirm
+                    </button>
+                </td>
+            </tr>
+        </form>
+    </tbody>
+</table>
+{% endblock %}

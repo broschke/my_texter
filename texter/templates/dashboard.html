@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Dashboard</h1>
+<h3 align="center">Notifications</h3>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Timezone</th>
+                <th>Frequency</th>
+                <th>Days</th>
+                <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for notification in notifications %}
+            <tr>
+                <td>
+                    {{notification.subject}}
+                </td>
+                <td>
+                    {{notification.timezone}}
+                </td>
+                <td>
+                    {{notification.frequency}}
+                </td>
+                <td>
+                    {{notification.days}}
+                </td>
+                <td>
+                    {{notification.status}}
+                </td>
+                <td>
+                    <a href="/notification/{{notification.id}}/edit">Edit</a>
+                </td>
+                <td>
+                    <a href="/notification/{{notification.id}}/delete">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="7">
+                    <a href="/notification/new" class="btn btn-success">
+                        Add new notification
+                    </a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
+<h3 align="center">Contact Information</h3>
+<p align = "center">Click Contacts in menu bar to input your number</p>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Number 1</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contact in contacts %}
+            <tr>
+                <td>
+                    {{contact.number1}}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="2">
+                    <a href="/logout" class="btn btn-warning">
+                        Logout
+                    </a>
+                </td>
+            </tr>    
+        </tbody>
+    </table>
+</div>
+<div>
+<p>Texts sent from 240.743.3986</p>
+</div>               
+{% endblock %}

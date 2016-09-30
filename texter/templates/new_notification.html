@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+<H1>New Notification</H1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Time Zone</th>
+            <th>Frequency</th>
+            <th>Days</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form action="" method="post">
+            <tr>
+                <td>
+                    <select name="subject">
+                        <option value="water">Water</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="timezone">
+                        <option value="eastern">Eastern</option>
+                        <option value="central">Central</option>
+                        <option value="mountain">Mountain</option>
+                        <option value="pacific">Pacific</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="frequency">
+                        <option value="every_hour">Every Hour</option>
+                        <option value="every_two_hours">Every Two Hours</option>
+                    </select>
+                </td>    
+                <td>
+                    <select name="days">
+                        <option value="every_day">Every Day</option>
+                        <option value="weekdays_only">Weekdays Only</option>
+                    </select>
+                </td>  
+                <td>
+                    <select name="status">
+                        <option value="disabled">Disabled</option>
+                        <option value="enabled">Enabled</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <button type="submit" class="btn btn-success">
+                        Confirm
+                    </button>
+                </td>
+            </tr>
+        </form>
+    </tbody>
+</table>
+{% endblock %}
