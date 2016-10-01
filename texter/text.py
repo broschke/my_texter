@@ -4,6 +4,7 @@ import random
 import time
 import os
 from texter.time_zone import USTimeZone
+from pytz import timezone
 
 #from key import account_sid, auth_token, twilio_number
 
@@ -34,18 +35,32 @@ text = ['Hello. This is your reminder to drink water. Thank you.',
 		'Hail Hydra....I mean Hail Hydration!']
 
 
+# def get_tz(timezone):
+# 	if timezone == "eastern":
+# 		Eastern = USTimeZone(-5, "Eastern",  "EST", "EDT")
+# 		return Eastern
+# 	elif timezone == "central":
+# 		Central  = USTimeZone(-6, "Central",  "CST", "CDT")
+# 		return Central
+# 	elif timezone == "mountain":
+# 		Mountain = USTimeZone(-7, "Mountain", "MST", "MDT")
+# 		return Mountain
+# 	elif timezone == "pacific":
+# 		Pacific  = USTimeZone(-8, "Pacific",  "PST", "PDT")
+# 		return Pacific
+
 def get_tz(timezone):
 	if timezone == "eastern":
-		Eastern = USTimeZone(-5, "Eastern",  "EST", "EDT")
+		Eastern = "US/Easter"
 		return Eastern
 	elif timezone == "central":
-		Central  = USTimeZone(-6, "Central",  "CST", "CDT")
+		Central  = "US/Central"
 		return Central
 	elif timezone == "mountain":
-		Mountain = USTimeZone(-7, "Mountain", "MST", "MDT")
+		Mountain = "US/Mountain"
 		return Mountain
 	elif timezone == "pacific":
-		Pacific  = USTimeZone(-8, "Pacific",  "PST", "PDT")
+		Pacific  = "US/Pacific"
 		return Pacific
 	
 def send_to_twilio(notification):
@@ -59,7 +74,7 @@ def send_to_twilio(notification):
 	
 def send_text(notification):
 	actual_timezone = get_tz(notification.timezone)
-	d = datetime.datetime.now(actual_timezone)
+	d = datetime.datetime.now(timezone(actual_timezone))
 	
 	if notification.status == 'disabled':
 		
