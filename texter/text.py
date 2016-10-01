@@ -3,7 +3,6 @@ import datetime
 import random
 import time
 import os
-from texter.time_zone import USTimeZone
 from pytz import timezone
 
 #from key import account_sid, auth_token, twilio_number
@@ -33,21 +32,6 @@ text = ['Hello. This is your reminder to drink water. Thank you.',
 		'Tell Janice from Accounting to relax. She\'ll get her numbers after your drink of water',
 		'Dihydrogen monoxide is a colorless and odorless chemical compound that the government is purposely telling its citizens to ingest. We must stop this abuse!',
 		'Hail Hydra....I mean Hail Hydration!']
-
-
-# def get_tz(timezone):
-# 	if timezone == "eastern":
-# 		Eastern = USTimeZone(-5, "Eastern",  "EST", "EDT")
-# 		return Eastern
-# 	elif timezone == "central":
-# 		Central  = USTimeZone(-6, "Central",  "CST", "CDT")
-# 		return Central
-# 	elif timezone == "mountain":
-# 		Mountain = USTimeZone(-7, "Mountain", "MST", "MDT")
-# 		return Mountain
-# 	elif timezone == "pacific":
-# 		Pacific  = USTimeZone(-8, "Pacific",  "PST", "PDT")
-# 		return Pacific
 
 def get_tz(timezone):
 	if timezone == "eastern":
