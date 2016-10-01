@@ -19,7 +19,7 @@ def run():
 def schedule_task():
     
     sched = BlockingScheduler()
-    @sched.scheduled_job('interval', hour=1)
+    @sched.scheduled_job('interval', hours=1)
     def timed_job():
         notifications = session.query(Notification).all()
         for n in notifications:
