@@ -51,7 +51,7 @@ text = ['Hello. This is your reminder to drink water. Thank you.',
 
 def get_tz(timezone):
 	if timezone == "eastern":
-		Eastern = "US/Easter"
+		Eastern = "US/Eastern"
 		return Eastern
 	elif timezone == "central":
 		Central  = "US/Central"
