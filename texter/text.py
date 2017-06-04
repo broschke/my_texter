@@ -31,7 +31,8 @@ text = ['Hello. This is your reminder to drink water. Thank you.',
 		'I love the taste of water. Especially frozen into cubes and completely surrounded by vodka.',
 		'Tell Janice from Accounting to relax. She\'ll get her numbers after your drink of water',
 		'Dihydrogen monoxide is a colorless and odorless chemical compound that the government is purposely telling its citizens to ingest. We must stop this abuse!',
-		'Hail Hydra....I mean Hail Hydration!']
+		'Hail Hydra....I mean Hail Hydration!',
+		'Dude, where\'s my water?']
 
 def get_tz(timezone):
 	if timezone == "eastern":
@@ -48,8 +49,10 @@ def get_tz(timezone):
 		return Pacific
 	
 def send_to_twilio(notification):
-	
-	contact = notification.user.contacts.first()
+	if notification.user.contacts.first() == '':
+		return
+	else:
+		contact = notification.user.contacts.first()
 	number = '+1'+contact.number1
 	client.messages.create(body = random.choice(text),
     	    		to = number, 
