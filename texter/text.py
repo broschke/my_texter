@@ -5,7 +5,7 @@ import time
 import os
 from pytz import timezone
 
-#from key import account_sid, auth_token, twilio_number
+# from key import account_sid, auth_token, twilio_number
 
 account_sid = os.environ['account_sid']
 auth_token = os.environ['auth_token']
@@ -49,10 +49,10 @@ def get_tz(timezone):
 		return Pacific
 	
 def send_to_twilio(notification):
-	if notification.user.contacts.first() == '':
+	if notification.user.first() == '':
 		return
 	else:
-		contact = notification.user.contacts.first()
+		contact = notification.user.first()
 	number = '+1'+contact.number1
 	client.messages.create(body = random.choice(text),
     	    		to = number, 

@@ -18,12 +18,13 @@ class User(Base, UserMixin):
     first_name = Column(String(128))
     last_name = Column(String(128))
     email = Column(String(128), unique=True)
+    number1 = Column(String(128))
+    number2 = Column(String(128))
     password = Column(String(128))
     datetime_created = Column(DateTime, default=datetime.datetime.now)
     
     notifications = relationship("Notification", backref="user")
-    contacts = relationship("Contact", backref="user", lazy="dynamic")
-    
+
 class Notification(Base):
     __tablename__ = "notifications"
     
@@ -35,16 +36,6 @@ class Notification(Base):
     status = Column(String(128))
     datetime_created = Column(DateTime, default=datetime.datetime.now)
     
-    user_id = Column(Integer, ForeignKey('users.id'))
-
-class Contact(Base):
-    __tablename__ = "contacts"
-    
-    id = Column(Integer, primary_key=True)
-    number1 = Column(String(128))
-    number2 = Column(String(128))
-    datetime_created = Column(DateTime, default=datetime.datetime.now)
-
     user_id = Column(Integer, ForeignKey('users.id'))
 
 #all classes before this line
