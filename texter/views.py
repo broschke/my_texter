@@ -121,7 +121,7 @@ def contacts_post():
     number1 = request.form["number1"]
     number2 = request.form["number2"]
     user = current_user
-    contacts = Contact(
+    contacts = User(
         number1 = number1,
         number2 = number2,
         user = user)
@@ -147,7 +147,7 @@ def delete_notification(id):
 @app.route("/contacts/<id>/delete", methods=["GET","POST"])
 @login_required
 def delete_contact(id):
-    contact = session.query(Contact)
+    contact = session.query(User)
     contact = contact.get(id)
     session.delete(contact)
     session.commit()
