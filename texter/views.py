@@ -5,7 +5,7 @@ from .database import session
 from flask import flash
 from flask.ext.login import login_user, current_user, login_required, logout_user
 from werkzeug.security import generate_password_hash, check_password_hash
-from .database import User, Notification, Contact
+from .database import User, Notification
 
 
 @app.route("/")
