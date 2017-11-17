@@ -22,6 +22,7 @@ class User(Base, UserMixin):
     datetime_created = Column(DateTime, default=datetime.datetime.now)
     
     notifications = relationship("Notification", backref="user")
+    contacts = relationship("Contact", backref="user", lazy="dynamic")
 
 class Notification(Base):
     __tablename__ = "notifications"
