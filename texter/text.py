@@ -49,15 +49,15 @@ def get_tz(timezone):
 		return Pacific
 	
 def send_to_twilio(notification):
-	if notification.user.first() == '':
-		return
-	else:
-		contact = notification.user.first()
-	number = '+1'+contact.number1
-	client.messages.create(body = random.choice(text),
-    	    		to = number, 
-    	    		from_ = twilio_number)
-	time.sleep(1.5)
+    if notification.user.contacts.first() == '':
+        return
+    else:
+        contact = notification.user.contacts.first()
+    number = '+1'+contact.number1
+    client.messages.create(body = random.choice(text),
+                    to = number, 
+                    from_ = twilio_number)
+    time.sleep(1.5)
 	
 def send_text(notification):
 	actual_timezone = get_tz(notification.timezone)
